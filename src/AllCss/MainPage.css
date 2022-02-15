@@ -21,4 +21,10 @@
     background-color: #191919d8;
     text-align: center;
     color: white; 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
     }
+
+.item-container::-webkit-scrollbar {
+    display: none;
+}

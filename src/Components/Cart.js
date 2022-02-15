@@ -1,19 +1,31 @@
-import React from "react";
+import { React, useEffect, useState} from "react";
 import { NavLink } from "react-router-dom";
+import NavBar from "./NavBar";
+import CartItemCard from "./CartItemCard"; 
 
-function Cart () {
+function Cart ({ user }) {
+    const [cartItems, setCartItems] = useState([])
+
+    useEffect(()=> {
+        fetch(`http://localhost:9292/products/user/${user.id}`)
+        .then((response)=> response.json())
+        .then((data)=> setCartItems(data))
+    })
+    
     return (
         <>
         <button className="back-button">Back</button>
-        <Navbar></Navbar>
+        <NavBar/>
         <div className="cards">
-            {itemList.map((item)=>{
+            {cartItems.map((item)=>{
                 return (
-                <CartItemCard/>
+                <CartItemCard key={item.name} item={item}/>
                 )
             })}
         </div>
         </>
     )
 }
+
+export default Cart; 
 

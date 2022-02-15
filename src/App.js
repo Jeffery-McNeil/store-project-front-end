@@ -1,12 +1,13 @@
 import {Routes, Route} from "react-router-dom"
-import { useLocalStorage, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import Login from "./Components/Login"
 import CreateAccount from './Components/CreateAccount'
 import MainPage from "./Components/MainPage"
+import Cart from "./Components/Cart"
 
 function App() {
   const [itemList, setItemList] = useState([])
-  const [user, setUser] = useLocalStorage([])
+  const [user, setUser] = useState([])
 
   useEffect(()=> {
     fetch("http://localhost:9292/products")
@@ -24,6 +25,7 @@ function App() {
      <Route exact path="/" element={<Login setUser={setUser}/>}/>
      <Route exact path="/createAccount" element={<CreateAccount/>}/>
      <Route exact path="/mainPage" element={<MainPage itemList={itemList} setItemList={setItemList}/>} user={user} />
+     <Route exact path="/cart" element={<Cart user={user}/>}/>
    </Routes>
    </>
   )
