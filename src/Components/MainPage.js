@@ -3,7 +3,7 @@ import ItemCard from "./ItemCard"
 import NavBar from "./NavBar"
 import '../AllCss/MainPage.css'
 
-function MainPage ({ itemList }) {
+function MainPage ({ itemList, user }) {
     const [category, setCategory] = useState("")
 
     let itemsToDisplay = []
@@ -39,7 +39,7 @@ function MainPage ({ itemList }) {
                 <div>
                     {itemsToDisplay.map((item)=>{
                         return (
-                            <ItemCard key={item.name} item={item}/>
+                            <ItemCard key={item.name} item={item} user={user}/>
                         )
                     })}
                 </div>

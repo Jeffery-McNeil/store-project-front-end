@@ -3,10 +3,10 @@ import {Link} from "react-router-dom"
 import { useState, useEffect } from "react";
 import '../AllCss/LoginPage.css'
 
-function Login(){
+function Login({ setUser }){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [user, setUser] = useState([])
+    
 
 
 
@@ -45,7 +45,6 @@ function Login(){
     if(localStorage.length > 0){
         return(
             <>
-                {console.log(localStorage.userID)}
                 {/* {navigate(`/frontPage/${localStorage.userID}`)} */}
             </>
         )
