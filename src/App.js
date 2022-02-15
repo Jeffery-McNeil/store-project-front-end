@@ -14,15 +14,13 @@ function App() {
       setItemList(data)
     })
   }, []); 
-  
-  console.log(itemList)
 
   return (
     <>
    <Routes>
      <Route exact path="/" element={<Login/>}/>
      <Route exact path="/createAccount" element={<CreateAccount/>}/>
-     <Route exact path="/mainPage" element={<MainPage itemList={itemList} />}/>
+     <Route exact path="/mainPage" element={<MainPage itemList={itemList} setItemList={setItemList}/>}/>
    </Routes>
    </>
   )

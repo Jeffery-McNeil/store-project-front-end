@@ -1,13 +1,27 @@
-import react from 'react'
+import { react, useState } from 'react'
 import ItemCard from "./ItemCard"
 import NavBar from "./NavBar"
 import '../AllCss/MainPage.css'
 
 function MainPage ({ itemList }) {
-    
-    function handleChange() {
-        console.log("Shut the fuck up")
+    const [category, setCategory] = useState("")
+
+    let itemsToDisplay = []
+
+    function handleChange(event) {
+        setCategory(event.target.value)
     }
+
+    switch (category) {
+        case 'music': 
+            itemsToDisplay = itemList.filter((item)=> item.category_id === 1)
+            break;
+        case 'games': 
+            itemsToDisplay = itemList.filter((item)=> item.category_id === 2)
+            break;
+        default:
+            itemsToDisplay = itemList
+    };
 
     return(
         <div className="bg-layer">
@@ -18,11 +32,12 @@ function MainPage ({ itemList }) {
                 <div>
                     <select className='selectBox' onChange={handleChange} name="categories">
                         <option value="">--Show By Category--</option>
-                        <option value=""></option>
+                        <option value="music">Music</option>
+                        <option value="games">Games</option>
                     </select>    
                 </div>
                 <div>
-                    {itemList.map((item)=>{
+                    {itemsToDisplay.map((item)=>{
                         return (
                             <ItemCard key={item.name} item={item}/>
                         )

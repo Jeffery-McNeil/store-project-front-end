@@ -2,6 +2,11 @@ import react from "react"
 import '../AllCss/ItemCard.css'
 
 function ItemCard ({ item }) {
+    
+    function handleClick () {
+        console.log("this works")
+    }
+
     if (item.category_id === 1) {
         return (
             <article className="card">
@@ -12,6 +17,7 @@ function ItemCard ({ item }) {
                     <p>{item.description}</p>
                     <p>${item.price}</p>
                 </div>
+                <button className="add-to-cart-button" onClick={handleClick}>Add to Cart</button>
             </article>
         )
     }
@@ -25,6 +31,7 @@ function ItemCard ({ item }) {
                 <p>{item.description}</p>
                 <p>${item.price}</p>
             </div>
+            <button className="add-to-cart-button" onClick={handleClick}>Add to Cart</button>
         </article>  
         )
     }
