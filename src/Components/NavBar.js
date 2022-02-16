@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import '../AllCss/NavBar.css'
 
 function NavBar() {
+
     return (
         <nav className="nav">
             <div className="nav-items">
@@ -12,9 +13,9 @@ function NavBar() {
                 <NavLink to="/cart" className="link-text">
                     Cart
                 </NavLink>
-                {/* <NavLink to="/checkout" className="link-text">
-                    Checkout
-                </NavLink> */}
+                <NavLink to="/" className="link-text" onClick={()=> localStorage.clear()}>
+                    Log Out
+                </NavLink>
             </div>
         </nav>
 
