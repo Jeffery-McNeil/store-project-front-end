@@ -2,7 +2,7 @@
 
 import '../AllCss/ItemCard.css'
 
-function ItemCard ({ item, user }) {
+function ItemCard ({ item, user, setItemInfo }) {
     
     function addToCart (e) {
        
@@ -22,6 +22,11 @@ function ItemCard ({ item, user }) {
              console.log(data)
             })
         }
+
+    function handleClick () {
+        localStorage.setItem('itemInfo', `${item.id}`)
+        window.location.href = 'ItemInfo'
+    }
         
 
     
@@ -35,7 +40,7 @@ function ItemCard ({ item, user }) {
                     {/* <p>Brand: {item.brand}</p> */}
                     {/* <p>{item.description}</p> */}
                     <p>${item.price}</p>
-                <button value={item.id}>More Information</button>
+                    <button value={item.id} onClick={handleClick}>More Information</button>
                 <button value={item.id} onClick={addToCart}>Add to Cart</button>
                 </div>
             </div>
@@ -52,7 +57,7 @@ function ItemCard ({ item, user }) {
                     {/* <p>{item.description}</p> */}
                     <p>${item.price}</p>
                     <div className="bttn-holder">
-                        <button value={item.id}>More Information</button>
+                        <button value={item.id} onClick={handleClick}>More Information</button>
                         <button value={item.id} onClick={addToCart}>Add to Cart</button>
                         </div>
                 </div>

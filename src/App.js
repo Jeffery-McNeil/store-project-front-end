@@ -5,7 +5,7 @@ import CreateAccount from './Components/CreateAccount'
 import MainPage from "./Components/MainPage"
 import Cart from "./Components/Cart"
 import AdminLogin from './Components/AdminLogin'
-import Checkout from "./Components/Checkout"
+import ItemInfo from "./Components/ItemInfo"
 
 function App() {
   const [cartItems, setCartItems] = useState([])
@@ -17,7 +17,7 @@ function App() {
      <Route exact path="/createAccount" element={<CreateAccount/>}/>
      <Route exact path="/shop" element={<MainPage />}  />
      <Route exact path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems}/>}/>
-     <Route exact path="/checkout" element={<Checkout/>} />
+     <Route exact path="/ItemInfo" element={<ItemInfo />} />
      <Route exact path="/admin-login" element={<AdminLogin/>}/>
    </Routes>
    </>

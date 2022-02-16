@@ -5,7 +5,7 @@ import NavBar from "./NavBar"
 import Filter from './Filter'
 import '../AllCss/MainPage.css'
 
-function MainPage () {
+function MainPage ({ setItemInfo }) {
     const [itemList, setItemList] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([])
     const navigate = useNavigate()
@@ -14,7 +14,6 @@ function MainPage () {
       fetch("http://localhost:9292/products")
       .then((response)=> response.json())
       .then((data)=> {
-          console.log(data.all)
         setItemList(data)
         setFilteredProducts(data.all)
       })
@@ -37,7 +36,7 @@ function MainPage () {
                 
                 <Filter handleChange={handleChange}/>
                 <div className="card-holder">
-                    {filteredProducts.map(item => <ItemCard key={item.name} item={item}/>)}
+                    {filteredProducts.map(item => <ItemCard key={item.name} item={item} setItemInfo={setItemInfo}/>)}
                 </div>
             </>
         )

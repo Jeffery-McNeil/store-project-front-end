@@ -26,7 +26,7 @@ function Cart ({ cartItems, setCartItems}) {
             <button className="back-button">Back</button>
             {console.log(totalPrice)}
             <NavBar/>
-            {/* <span className="cart-total">Cart Total: ${totalPrice}</span> */}
+            <span className="cart-total">Cart Total: ${totalPrice}</span>
             <div className="card-holder">
                 {cartItems.map(item =>  <CartItemCard key={item.id} item={item} onDelete={onDelete}/>)}
             </div>

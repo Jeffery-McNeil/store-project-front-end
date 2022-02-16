@@ -11,6 +11,11 @@ function CartItemCard ({ item, onDelete }) {
              onDelete(data.product_id)
             })}   
     
+    function handleClick () {
+        localStorage.setItem('itemInfo', `${item.id}`)
+        window.location.href = 'ItemInfo'
+    }
+
     if (item.category_id === 1) {
             return (
                 <article className="tile">
@@ -20,7 +25,7 @@ function CartItemCard ({ item, onDelete }) {
                         <p>Artist: {item.brand}</p>
                         {/*<p>{item.description}</p>*/}
                         <p>${item.price}</p>
-                        <button value={item.id}>More Information</button>
+                        <button value={item.id} onClick={handleClick}>More Information</button>
                         <button value={item.id} onClick={removeFromCart}>Remove From Cart</button>
                     </div>
                 </article>
@@ -37,7 +42,7 @@ function CartItemCard ({ item, onDelete }) {
                 {/* <p>{item.description}</p> */}
                 <p>${item.price}</p>
                 <div className="bttn-holder">
-                    <button value={item.id}>More Information</button>
+                    <button value={item.id} onClick={handleClick}>More Information</button>
                     <button value={item.id} onClick={removeFromCart}>Remove From Cart</button>
                     </div>
             </div>
