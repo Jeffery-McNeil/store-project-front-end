@@ -7,23 +7,22 @@ import '../AllCss/MainPage.css'
 
 function MainPage () {
     const [itemList, setItemList] = useState([])
-
+    const [filteredProducts, setFilteredProducts] = useState([])
     const navigate = useNavigate()
 
     useEffect(()=> {
       fetch("http://localhost:9292/products")
       .then((response)=> response.json())
       .then((data)=> {
+          console.log(data.all)
         setItemList(data)
+        setFilteredProducts(data.all)
       })
     }, []); 
     
     function handleChange(e) {
-        fetch(`http://localhost:9292/${e.target.value}`) 
-            .then((r) => r.json())
-            .then((filteredProducts) => {
-                setItemList(filteredProducts)
-            });
+        let category = e.target.value 
+        setFilteredProducts(itemList[category])
         }
 
    
@@ -34,7 +33,7 @@ function MainPage () {
                 <NavBar/>
                 <Filter handleChange={handleChange}/>
                 <div className="card-holder">
-                    {itemList.map(item => <ItemCard key={item.name} item={item}/>)}
+                    {filteredProducts.map(item => <ItemCard key={item.name} item={item}/>)}
                 </div>
             </>
         )
