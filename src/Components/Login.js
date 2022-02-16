@@ -2,6 +2,7 @@
 import {Link, useNavigate} from "react-router-dom"
 import { useState} from "react";
 import '../AllCss/LoginPage.css'
+import MainPage from './MainPage'
 
 function Login(){
     const [username, setUsername] = useState("")
@@ -45,8 +46,8 @@ function Login(){
 
     if(localStorage.length > 0){
         return(
-            <>
-                {navigate('/shop')}
+            <>  
+                <MainPage/>
             </>
         )
     

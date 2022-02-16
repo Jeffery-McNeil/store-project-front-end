@@ -7,11 +7,19 @@ import '../AllCss/Cart.css'
 function Cart ({ cartItems, setCartItems}) {
 
     useEffect(()=> {
+<<<<<<< HEAD
         fetch(`http://localhost:9292/get_cart_items/${localStorage.user}`)
             .then((r) => r.json())
             .then((allCartItems) => {
             setCartItems(allCartItems)
             //when using allCartItems as a state code breaks    
+=======
+
+        fetch(`http://localhost:9292/cart_items/${localStorage.user}`)
+            .then((r) => r.json())
+            .then((allCartItems) => {
+            console.log(allCartItems)
+>>>>>>> refs/remotes/origin/main
             })
     }, [])
     
