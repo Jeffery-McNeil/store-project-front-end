@@ -32,7 +32,7 @@ function ItemCard ({ item, user }) {
                 <p className="name">{item.name}</p>
                 <img className="img" src={item.img} alt={item.name} />
                 <div className="cardDetails">
-                    <p>Artist: {item.brand}</p>
+                    {/* <p>Brand: {item.brand}</p> */}
                     {/* <p>{item.description}</p> */}
                     <p>${item.price}</p>
                 <button value={item.id}>More Information</button>
@@ -44,15 +44,19 @@ function ItemCard ({ item, user }) {
     else {
         return (
             <div className="tile">
-            <h3 className="name">{item.name}</h3>
-            <img className="img" src={item.img} alt={item.name} />
-            <div className="cardDetails">
-                <p>Brand: {item.brand}</p>
-                {/* <p>{item.description}</p> */}
-                <p>${item.price}</p>
+              
+                <img className="img" src={item.img} alt={item.name} />
+                <p className="name">{item.name}</p>
+                <div className="cardDetails">
+                    {/* <p>Artist: {item.brand}</p> */}
+                    {/* <p>{item.description}</p> */}
+                    <p>${item.price}</p>
+                    <div className="bttn-holder">
+                        <button value={item.id}>More Information</button>
+                        <button value={item.id} onClick={addToCart}>Add to Cart</button>
+                        </div>
+                </div>
             </div>
-            <button className="add-to-cart-button" onClick={addToCart}>Add to Cart</button>
-        </div>  
         )
     }
 }

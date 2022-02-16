@@ -5,13 +5,14 @@ import '../AllCss/MainPage.css'
 import '../AllCss/Cart.css'
 
 function Cart ({ cartItems, setCartItems}) {
-
+    const [totalPrice, setTotalPrice] = useState(0)
     useEffect(()=> {
         fetch(`http://localhost:9292/get_cart_items/${localStorage.user}`)
             .then((r) => r.json())
-            .then((allCartItems) => {
-            setCartItems(allCartItems)
-            //when using allCartItems as a state code breaks    
+            .then((cart_data) => {
+                console.log(cart_data)
+            setCartItems(cart_data[0])
+            setTotalPrice(cart_data[1])
             })
     }, [])
     
@@ -19,14 +20,13 @@ function Cart ({ cartItems, setCartItems}) {
         setCartItems(cartItems.filter((item)=> item.id !== id))
     }
 
-    const prices = cartItems.map((item)=> item.price)
-    const totalPrice = prices.reduce((partialSum, a) => partialSum + a, 0)
 
     return (
         <>
             <button className="back-button">Back</button>
+            {console.log(totalPrice)}
             <NavBar/>
-            <span className="cart-total">Cart Total: ${totalPrice}</span>
+            {/* <span className="cart-total">Cart Total: ${totalPrice}</span> */}
             <div className="card-holder">
                 {cartItems.map(item =>  <CartItemCard key={item.id} item={item} onDelete={onDelete}/>)}
             </div>
