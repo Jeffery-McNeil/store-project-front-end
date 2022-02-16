@@ -27,20 +27,23 @@ function CartItemCard ({ item, onDelete }) {
             )
         }
         else {
-            return (
-                <article className="tile">
-                <h3 className="name">{item.name}</h3>
-                <img className="img" src={item.img} />
-                <div className="cardDetails">
-                    <p>Brand: {item.brand}</p>
-                    {/* <p>{item.description}</p> */}
-                    <p>${item.price}</p>
+            return(
+            <div className="tile">
+              
+            <img className="img" src={item.img} alt={item.name} />
+            <p className="name">{item.name}</p>
+            <div className="cardDetails">
+                {/* <p>Artist: {item.brand}</p> */}
+                {/* <p>{item.description}</p> */}
+                <p>${item.price}</p>
+                <div className="bttn-holder">
                     <button value={item.id}>More Information</button>
                     <button value={item.id} onClick={removeFromCart}>Remove From Cart</button>
-                </div>
-            </article>  
-            )
-        }
+                    </div>
+            </div>
+        </div>
+            )}
+
         
 }
 

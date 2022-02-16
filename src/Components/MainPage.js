@@ -30,7 +30,11 @@ function MainPage () {
     if(localStorage.length > 0){
         return(
             <>
-                <NavBar/>
+            <NavBar/>
+                <div className="banner-container">
+                 
+                </div>
+                
                 <Filter handleChange={handleChange}/>
                 <div className="card-holder">
                     {filteredProducts.map(item => <ItemCard key={item.name} item={item}/>)}

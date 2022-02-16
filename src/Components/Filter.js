@@ -5,7 +5,7 @@ function Filter({handleChange}){
         <div>
             <select onChange={handleChange} name="categories">
                 <option value="all">ALL</option>
-                <option value="music">Music</option>
+                <option value="phones">Phones</option>
                 <option value="games">Games</option>
             </select>    
         </div>
