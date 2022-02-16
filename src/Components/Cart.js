@@ -23,6 +23,7 @@ function Cart ({ user }) {
                 )
             })}
         </div>
+        
         </>
     )
 }

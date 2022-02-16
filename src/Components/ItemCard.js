@@ -1,10 +1,19 @@
 import react from "react"
 import '../AllCss/ItemCard.css'
 
-function ItemCard ({ item }) {
+function ItemCard ({ item, user }) {
     
     function handleClick () {
-        console.log("this works")
+        fetch("http://localhost:9292/products", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+                product_id: item.id
+            })
+        })
     }
 
     if (item.category_id === 1) {
