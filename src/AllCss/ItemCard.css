@@ -17,6 +17,8 @@
 .name {
   font-size: 20px;
   margin-bottom: 30px;
+  width: 175px;
+  margin-left: -10px;
 }
 
 .img {

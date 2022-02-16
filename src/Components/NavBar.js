@@ -7,7 +7,7 @@ function NavBar() {
         <nav className="nav">
             <div className="nav-items">
                 <NavLink to="/shop" className="link-text">
-                    Home
+                    Shop
                 </NavLink>
                 <NavLink to="/cart" className="link-text">
                     Cart

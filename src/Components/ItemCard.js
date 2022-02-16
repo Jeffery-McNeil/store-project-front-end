@@ -5,6 +5,7 @@ import '../AllCss/ItemCard.css'
 function ItemCard ({ item, user }) {
     
     function addToCart (e) {
+       
         let cartItem = {
             product_id: e.target.value,
             user_id: localStorage.user
@@ -12,20 +13,20 @@ function ItemCard ({ item, user }) {
         fetch("http://localhost:9292/add_to_cart", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(cartItem),
             })
             .then((r) => r.json())
-            .then((cartItem) => {
-             console.log(cartItem)
+            .then((data) => {
+             console.log(data)
             })
         }
         
 
     
 
-    if (item.category_id === 5) {
+    if (item.category_id === 1) {
         return (
             <div className="tile">
                 <p className="name">{item.name}</p>
@@ -42,9 +43,9 @@ function ItemCard ({ item, user }) {
     }
     else {
         return (
-            <div className="card">
-            <h3 className="itemName">{item.name}</h3>
-            <img className="itemImage" src={item.img} alt={item.name} />
+            <div className="tile">
+            <h3 className="name">{item.name}</h3>
+            <img className="img" src={item.img} alt={item.name} />
             <div className="cardDetails">
                 <p>Brand: {item.brand}</p>
                 {/* <p>{item.description}</p> */}
