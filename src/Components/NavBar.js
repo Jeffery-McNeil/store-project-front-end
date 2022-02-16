@@ -12,9 +12,9 @@ function NavBar() {
                 <NavLink to="/cart" className="link-text">
                     Cart
                 </NavLink>
-                <NavLink to="/checkout" className="link-text">
+                {/* <NavLink to="/checkout" className="link-text">
                     Checkout
-                </NavLink>
+                </NavLink> */}
             </div>
         </nav>
 

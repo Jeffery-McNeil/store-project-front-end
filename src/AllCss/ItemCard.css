@@ -37,7 +37,7 @@
 }
 
 .tile:hover {
-  transform: scale(1.035);
+  transform: scale(1.04);
 }
 .tile:hover button {
   margin-top: -150px;
@@ -45,5 +45,5 @@
 
 .tile button {
   margin-top: 100px;
-  transition: 0.8s ease;
+  transition: 1s ease;
 }
