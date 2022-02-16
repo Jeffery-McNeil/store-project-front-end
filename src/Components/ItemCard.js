@@ -25,7 +25,7 @@ function ItemCard ({ item }) {
 
     
 
-    if (item.category_id === 1) {
+    if (item.category_id === 5) {
         return (
             <div className="tile">
                 <p className="name">{item.name}</p>
@@ -34,7 +34,7 @@ function ItemCard ({ item }) {
                     <p>Artist: {item.brand}</p>
                     {/* <p>{item.description}</p> */}
                     <p>${item.price}</p>
-               
+                <button value={item.id}>More Information</button>
                 <button value={item.id} onClick={addToCart}>Add to Cart</button>
                 </div>
             </div>

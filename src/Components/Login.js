@@ -32,6 +32,8 @@ function Login(){
                 navigate('/shop')
                 }else{
                     alert("The username or password you entered is incorrect")
+                    setPassword("")
+                    setUsername("")
                 }
                 
             });
@@ -44,7 +46,7 @@ function Login(){
     if(localStorage.length > 0){
         return(
             <>
-                {navigate('/mainPage')}
+                {navigate('/shop')}
             </>
         )
     
@@ -62,6 +64,9 @@ function Login(){
                         <br></br>
                         <br></br>
                         <Link to={"/createAccount"} className="link">Dont have an account? Click here to create one!</Link>
+                        <br></br>
+                        <br></br>
+                        <Link to={'admin-login'} className="link">Log in as admin</Link>
                     </div>
                 </div>
             </div>

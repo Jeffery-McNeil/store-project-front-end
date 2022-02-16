@@ -3,6 +3,7 @@ import Login from "./Components/Login"
 import CreateAccount from './Components/CreateAccount'
 import MainPage from "./Components/MainPage"
 import Cart from "./Components/Cart"
+import AdminLogin from './Components/AdminLogin'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
      <Route exact path="/createAccount" element={<CreateAccount/>}/>
      <Route exact path="/shop" element={<MainPage />}  />
      <Route exact path="/cart" element={<Cart/>}/>
+     <Route exact path="/admin-login" element={<AdminLogin/>}/>
    </Routes>
    </>
   )

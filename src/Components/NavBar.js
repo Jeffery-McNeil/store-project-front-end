@@ -4,17 +4,19 @@ import '../AllCss/NavBar.css'
 
 function NavBar() {
     return (
-        <header >
-            <NavLink to="/mainPage">
-                Home
-            </NavLink>
-            <NavLink to="/cart">
-                Cart
-            </NavLink>
-            <NavLink to="/checkout">
-                Checkout
-            </NavLink>
-        </header>
+        <nav className="nav">
+            <div className="nav-items">
+                <NavLink to="/shop" className="link-text">
+                    Home
+                </NavLink>
+                <NavLink to="/cart" className="link-text">
+                    Cart
+                </NavLink>
+                <NavLink to="/checkout" className="link-text">
+                    Checkout
+                </NavLink>
+            </div>
+        </nav>
 
     )}
 

@@ -17,7 +17,8 @@ function Cart () {
             })
             .then((r) => r.json())
             .then((allCartItems) => {
-               setCartItems(allCartItems)
+            console.log(allCartItems)
+            //when using allCartItems as a state code breaks    
             })
     }, [])
     

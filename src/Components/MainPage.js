@@ -1,4 +1,5 @@
 import {useState, useEffect } from 'react'
+import {useNavigate} from "react-router-dom"
 import ItemCard from "./ItemCard"
 import NavBar from "./NavBar"
 import Filter from './Filter'
@@ -6,6 +7,8 @@ import '../AllCss/MainPage.css'
 
 function MainPage () {
     const [itemList, setItemList] = useState([])
+
+    const navigate = useNavigate()
 
     useEffect(()=> {
       fetch("http://localhost:9292/products")
@@ -23,16 +26,26 @@ function MainPage () {
             });
         }
 
-    return(
-        <>
-            <NavBar/>
-            <Filter handleChange={handleChange}/>
-            <div className="card-holder">
-                {itemList.map(item => <ItemCard key={item.name} item={item}/>)}
-            </div>
-            
-        </>
-    )
+   
+       
+    if(localStorage.length > 0){
+        return(
+            <>
+                <NavBar/>
+                <Filter handleChange={handleChange}/>
+                <div className="card-holder">
+                    {itemList.map(item => <ItemCard key={item.name} item={item}/>)}
+                </div>
+            </>
+        )
+    }
+    else{
+        return(
+            <>
+       {navigate('/')}
+       </>
+        )
+    }
 }
 
 
