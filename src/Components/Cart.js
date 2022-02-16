@@ -19,14 +19,14 @@ function Cart ({ cartItems, setCartItems}) {
         setCartItems(cartItems.filter((item)=> item.id !== id))
     }
 
-    const prices = cartItems.map((item)=> item.price)
-    const totalPrice = prices.reduce((partialSum, a) => partialSum + a, 0)
+    // const prices = cartItems.map((item)=> item.price)
+    // const totalPrice = prices.reduce((partialSum, a) => partialSum + a, 0)
 
     return (
         <>
             <button className="back-button">Back</button>
             <NavBar/>
-            <span className="cart-total">Cart Total: ${totalPrice}</span>
+            {/* <span className="cart-total">Cart Total: ${totalPrice}</span> */}
             <div className="card-holder">
                 {cartItems.map(item =>  <CartItemCard key={item.id} item={item} onDelete={onDelete}/>)}
             </div>
