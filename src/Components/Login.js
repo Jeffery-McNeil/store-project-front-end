@@ -1,13 +1,13 @@
 // import React,{useState} from "react";
-import {Link} from "react-router-dom"
-import { useState, useEffect } from "react";
+import {Link, useNavigate} from "react-router-dom"
+import { useState} from "react";
 import '../AllCss/LoginPage.css'
 
-function Login({ setUser }){
+function Login(){
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    
 
+    const navigate = useNavigate()
 
 
     function onSubmit(e){
@@ -25,12 +25,11 @@ function Login({ setUser }){
             })
             .then((r) => r.json())
             .then((currentUser) => {
-                if(currentUser.length == 1){
-                console.log('user', currentUser)
-                setUser(currentUser)
-                
+                if(currentUser.length === 1){
                 setPassword("")
                 setUsername("")
+                localStorage.setItem("user", currentUser[0].id)
+                navigate('/shop')
                 }else{
                     alert("The username or password you entered is incorrect")
                 }
@@ -45,7 +44,7 @@ function Login({ setUser }){
     if(localStorage.length > 0){
         return(
             <>
-                {/* {navigate(`/frontPage/${localStorage.userID}`)} */}
+                {navigate('/mainPage')}
             </>
         )
     

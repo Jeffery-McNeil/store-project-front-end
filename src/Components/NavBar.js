@@ -4,14 +4,14 @@ import '../AllCss/NavBar.css'
 
 function NavBar() {
     return (
-        <header className="navBar">
-            <NavLink className="navLinks" to="/mainPage">
+        <header >
+            <NavLink to="/mainPage">
                 Home
             </NavLink>
-            <NavLink className="navLinks" to="/cart">
+            <NavLink to="/cart">
                 Cart
             </NavLink>
-            <NavLink className="navLinks" to="/checkout">
+            <NavLink to="/checkout">
                 Checkout
             </NavLink>
         </header>
