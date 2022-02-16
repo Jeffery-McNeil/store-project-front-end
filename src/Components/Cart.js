@@ -1,32 +1,38 @@
 import { React, useEffect, useState} from "react";
-import { NavLink } from "react-router-dom";
 import NavBar from "./NavBar";
 import CartItemCard from "./CartItemCard"; 
 
-function Cart ({ user }) {
+function Cart () {
     const [cartItems, setCartItems] = useState([])
-
     useEffect(()=> {
-        fetch(`http://localhost:9292/products/user/${user.id}`)
-        .then((response)=> response.json())
-        .then((data)=> setCartItems(data))
-    })
+        let user = {
+            user_id: localStorage.user
+        }
+        fetch("http://localhost:9292/get_cart_items", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+            })
+            .then((r) => r.json())
+            .then((allCartItems) => {
+            console.log(allCartItems)
+            //when using allCartItems as a state code breaks    
+            })
+    }, [])
     
     return (
         <>
-        <button className="back-button">Back</button>
-        <NavBar/>
-        <div className="cards">
-            {cartItems.map((item)=>{
-                return (
-                <CartItemCard key={item.name} item={item}/>
-                )
-            })}
-        </div>
-        
+            {console.log(cartItems)}
+            <button className="back-button">Back</button>
+            <NavBar/>
+            <div className="cards">
+                {cartItems.map(item =>  <CartItemCard key={item.id} item={item}/>)}
+            </div>
         </>
     )
 }
 
-export default Cart; 
+export default Cart
 
