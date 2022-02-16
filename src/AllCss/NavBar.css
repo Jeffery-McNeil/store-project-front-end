@@ -5,10 +5,13 @@
   background-color: transparent;
   align-items: center;
   min-height: 8vh;
+  background-color: rgb(245, 245, 247);
 }
 nav {
   margin-bottom: 50px;
   border-bottom: 2px solid white;
+  background-color: rgb(245, 245, 247);
+  border-bottom: none;
 }
 
 .nav-items {

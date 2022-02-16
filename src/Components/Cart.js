@@ -5,20 +5,11 @@ import CartItemCard from "./CartItemCard";
 function Cart () {
     const [cartItems, setCartItems] = useState([])
     useEffect(()=> {
-        let user = {
-            user_id: localStorage.user
-        }
-        fetch("http://localhost:9292/get_cart_items", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),
-            })
+
+        fetch(`http://localhost:9292/cart_items/${localStorage.user}`)
             .then((r) => r.json())
             .then((allCartItems) => {
             console.log(allCartItems)
-            //when using allCartItems as a state code breaks    
             })
     }, [])
     
