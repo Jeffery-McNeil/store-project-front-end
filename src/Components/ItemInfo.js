@@ -1,4 +1,5 @@
 import { react, useEffect, useState } from "react";
+import Reviews from "./Reviews";
 import NavBar from "./NavBar";
 import '../AllCss/ItemInfo.css'
 
@@ -27,6 +28,7 @@ function ItemInfo () {
                      <p>${itemInfo.price}</p>
                  </div>
              </div>
+                <Reviews itemID={itemInfo.id}/>
              </div>
         </>
     )
