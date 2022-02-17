@@ -37,23 +37,42 @@ function Reviews(){
             });
     }
 
-    return(
-        <>
-        <div className='comment-container'>
-            <h2 className="title">Reviews</h2>
-            {console.log(productComments)}
-            <div >
-            {productComments.map(comment => <Comment commentInfo={comment}/>)}
+    if(productComments.length < 1){
+        return(
+            <>
+             <div className='comment-container'>
+                <h2 className="title">Reviews</h2>
+                <p className="comment"> There are currently no reviews, be the first to add one!</p>
+                <h3 className='title'>Add Your Review!</h3>
+                <form onSubmit={sendToCommentDB} className="form">
+                    <textarea type={'text'} name='newComment' placeholder='write your comment here....' value={newComment} onChange={(e)=> setNewComment(e.target.value)} rows='3' cols={'100'}></textarea>
+                    <br></br>
+                    <input type={"submit"} className="bttn"></input>
+                </form>
+
+             </div>
+            </>
+        )
+    
+    }else{
+        return(
+            <>
+            <div className='comment-container'>
+                <h2 className="title">Reviews</h2>
+                {console.log(productComments)}
+                <div >
+                {productComments.map(comment => <Comment commentInfo={comment}/>)}
+                </div>
+                <h3 className='title'>Add Your Review!</h3>
+                <form onSubmit={sendToCommentDB} className="form">
+                    <textarea type={'text'} name='newComment' placeholder='write your comment here....' value={newComment} onChange={(e)=> setNewComment(e.target.value)} rows='3' cols={'100'}></textarea>
+                    <br></br>
+                    <input type={"submit"} className="bttn"></input>
+                </form>
             </div>
-            <h3 className='title'>Add Your Review!</h3>
-            <form onSubmit={sendToCommentDB} className="form">
-                <textarea type={'text'} name='newComment' placeholder='write your comment here....' value={newComment} onChange={(e)=> setNewComment(e.target.value)} rows='3' cols={'100'}></textarea>
-                <br></br>
-                <input type={"submit"} className="bttn"></input>
-            </form>
-        </div>
-        </>
-    )
+            </>
+        )
+    }
 }
 
 export default Reviews
