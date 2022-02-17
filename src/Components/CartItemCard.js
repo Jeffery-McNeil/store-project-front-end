@@ -74,11 +74,14 @@ function CartItemCard ({ item, onDelete, update, setUpdate }) {
             <div className="cartCardDetails">
                 {/* <p>Artist: {item.brand}</p> */}
                 {/*<p>{item.description}</p>*/}
+                
                 <div className="quantity">
+                <p>quantity</p>
                     <button id="subtractButton" className="quantityButton" onClick={handleSubtract}>-</button>
                     <h3 className="quantityButton">{quantity}</h3>
                     <button id="addButton" className="quantityButton" onClick={handleAdd}>+</button>
                 </div>
+                
                 <p>${itemPrice.toFixed(Math.max(2, (itemPrice.toString().split('.')[1] || []).length))}</p>
                 <button className="button" value={item.id} onClick={handleClick}>More Information</button>
                 <button className="button" value={item.id} onClick={removeFromCart}>Remove From Cart</button>
