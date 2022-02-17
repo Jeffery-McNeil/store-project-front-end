@@ -3,6 +3,7 @@ import CheckoutList from "./CheckoutList";
 import NavBar from "./NavBar";
 import "../AllCss/Cart.css"
 import CreditCardCheck from "./CreditCardCheck";
+import Shipping from "./Shipping"
 
 
 function Checkout ({ cartItems, update, setCartItems, setTotalPrice, setUpdate, onDelete, totalPrice}) {
@@ -23,6 +24,9 @@ function Checkout ({ cartItems, update, setCartItems, setTotalPrice, setUpdate, 
             <span className="cart-total">Cart Total: ${totalPrice}</span>
             <div className="item-list">
                 {cartItems.map((item)=> <CheckoutList key={item.name} item={item} onDelete={onDelete} update={update} setUpdate={setUpdate}/>)}
+            </div>
+            <div className="cartTile">
+                <Shipping />
             </div>
             <div className="cartTile">
                 <CreditCardCheck />
