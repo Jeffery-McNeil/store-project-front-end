@@ -2,7 +2,7 @@
 
 import '../AllCss/ItemCard.css'
 
-function ItemCard ({ item, user, setItemInfo }) {
+function ItemCard ({ item, user }) {
     
     function addToCart (e) {
        
@@ -40,8 +40,8 @@ function ItemCard ({ item, user, setItemInfo }) {
                     {/* <p>Brand: {item.brand}</p> */}
                     {/* <p>{item.description}</p> */}
                     <p>${item.price}</p>
-                    <button value={item.id} onClick={handleClick}>More Information</button>
-                <button value={item.id} onClick={addToCart}>Add to Cart</button>
+                    <button className='button' value={item.id} onClick={handleClick}>More Information</button>
+                    <button className='button' value={item.id} onClick={addToCart}>Add to Cart</button>
                 </div>
             </div>
         )
@@ -57,8 +57,8 @@ function ItemCard ({ item, user, setItemInfo }) {
                     {/* <p>{item.description}</p> */}
                     <p>${item.price}</p>
                     <div className="bttn-holder">
-                        <button value={item.id} onClick={handleClick}>More Information</button>
-                        <button value={item.id} onClick={addToCart}>Add to Cart</button>
+                        <button className='button' value={item.id} onClick={handleClick}>More Information</button>
+                        <button className='button' value={item.id} onClick={addToCart}>Add to Cart</button>
                         </div>
                 </div>
             </div>

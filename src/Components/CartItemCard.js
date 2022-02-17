@@ -1,7 +1,18 @@
-import react from "react";
-import '../AllCss/ItemCard.css'
+import react, { useEffect, useState } from "react";
+import '../AllCss/CartItemCard.css'
 
-function CartItemCard ({ item, onDelete }) {
+function CartItemCard ({ item, onDelete, update, setUpdate }) {
+    const [quantity, setQuantity] = useState(0)
+
+    useEffect(()=> {
+        fetch(`http://localhost:9292/get_cart_quantity/${item.id}`)
+            .then((r) => r.json())
+            .then((data) => {
+                setQuantity(data)
+            })
+    }, [])
+    
+
     function removeFromCart() {
         fetch(`http://localhost:9292/carts/${item.id}`, {
             method: "DELETE"
@@ -16,17 +27,61 @@ function CartItemCard ({ item, onDelete }) {
         window.location.href = 'ItemInfo'
     }
 
+    function handleAdd () {
+        fetch(`http://localhost:9292/cart_quantity_add/${item.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                quantity: quantity + 1
+            })
+        })
+            .then((r) => r.json())
+            .then((data) => {
+             console.log(data)
+            })
+        setQuantity(quantity + 1)
+        setUpdate(!update)
+    }
+
+    function handleSubtract () {
+        fetch(`http://localhost:9292/cart_quantity_subtract/${item.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                quantity: quantity - 1
+            })
+        })
+            .then((r) => r.json())
+            .then((data) => {
+             console.log(data)
+            })
+        setQuantity(quantity - 1)
+        setUpdate(!update)
+    }
+
+    
     if (item.category_id === 1) {
             return (
-                <article className="tile">
-                    <h2 className="name">{item.name}</h2>
-                    <img className="img" src={item.img} />
-                    <div className="cardDetails">
-                        <p>Artist: {item.brand}</p>
+                <article className="cartTile">                    
+                    <img className="cartImg" src={item.img} />
+                    <div className="cartName">
+                        <h2 >{item.name}</h2>
+                    </div>
+                    <div className="cartCardDetails">
+                        {/* <p>Artist: {item.brand}</p> */}
                         {/*<p>{item.description}</p>*/}
+                        <div className="quantity">
+                            <button id="subtractButton" className="quantityButton" onClick={handleSubtract}>-</button>
+                            <h3 className="quantityButton">{quantity}</h3>
+                            <button id="addButton" className="quantityButton" onClick={handleAdd}>+</button>
+                        </div>
                         <p>${item.price}</p>
-                        <button value={item.id} onClick={handleClick}>More Information</button>
-                        <button value={item.id} onClick={removeFromCart}>Remove From Cart</button>
+                        <button className="button" value={item.id} onClick={handleClick}>More Information</button>
+                        <button className="button" value={item.id} onClick={removeFromCart}>Remove From Cart</button>
                     </div>
                 </article>
             )
@@ -42,8 +97,8 @@ function CartItemCard ({ item, onDelete }) {
                 {/* <p>{item.description}</p> */}
                 <p>${item.price}</p>
                 <div className="bttn-holder">
-                    <button value={item.id} onClick={handleClick}>More Information</button>
-                    <button value={item.id} onClick={removeFromCart}>Remove From Cart</button>
+                    <button className="button" value={item.id} onClick={handleClick}>More Information</button>
+                    <button className="button" value={item.id} onClick={removeFromCart}>Remove From Cart</button>
                     </div>
             </div>
         </div>
