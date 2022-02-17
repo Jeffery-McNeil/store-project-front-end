@@ -1,0 +1,19 @@
+.select {
+    position: relative;
+    width: 10ch;
+    min-width: 10ch;
+    max-width: 30ch;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: rgb(232, 232, 236);
+    background-image: linear-gradient(to top, #f9f9f9, rgb(232, 232, 236));
+    left: 10%;
+  }
+
+.select:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

@@ -63,46 +63,28 @@ function CartItemCard ({ item, onDelete, update, setUpdate }) {
         setUpdate(!update)
     }
 
-    
-    if (item.category_id === 1) {
-            return (
-                <article className="cartTile">                    
-                    <img className="cartImg" src={item.img} />
-                    <div className="cartName">
-                        <h2 >{item.name}</h2>
-                    </div>
-                    <div className="cartCardDetails">
-                        {/* <p>Artist: {item.brand}</p> */}
-                        {/*<p>{item.description}</p>*/}
-                        <div className="quantity">
-                            <button id="subtractButton" className="quantityButton" onClick={handleSubtract}>-</button>
-                            <h3 className="quantityButton">{quantity}</h3>
-                            <button id="addButton" className="quantityButton" onClick={handleAdd}>+</button>
-                        </div>
-                        <p>${item.price}</p>
-                        <button className="button" value={item.id} onClick={handleClick}>More Information</button>
-                        <button className="button" value={item.id} onClick={removeFromCart}>Remove From Cart</button>
-                    </div>
-                </article>
-            )
-        }
-        else {
-            return(
-            <div className="tile">
-              
-            <img className="img" src={item.img} alt={item.name} />
-            <p className="name">{item.name}</p>
-            <div className="cardDetails">
-                {/* <p>Artist: {item.brand}</p> */}
-                {/* <p>{item.description}</p> */}
-                <p>${item.price}</p>
-                <div className="bttn-holder">
-                    <button className="button" value={item.id} onClick={handleClick}>More Information</button>
-                    <button className="button" value={item.id} onClick={removeFromCart}>Remove From Cart</button>
-                    </div>
+    const itemPrice = item.price
+
+    return (
+        <article className="cartTile">                    
+            <img className="cartImg" src={item.img} />
+            <div className="cartName">
+                <h2 >{item.name}</h2>
             </div>
-        </div>
-            )}
+            <div className="cartCardDetails">
+                {/* <p>Artist: {item.brand}</p> */}
+                {/*<p>{item.description}</p>*/}
+                <div className="quantity">
+                    <button id="subtractButton" className="quantityButton" onClick={handleSubtract}>-</button>
+                    <h3 className="quantityButton">{quantity}</h3>
+                    <button id="addButton" className="quantityButton" onClick={handleAdd}>+</button>
+                </div>
+                <p>${itemPrice.toFixed(Math.max(2, (itemPrice.toString().split('.')[1] || []).length))}</p>
+                <button className="button" value={item.id} onClick={handleClick}>More Information</button>
+                <button className="button" value={item.id} onClick={removeFromCart}>Remove From Cart</button>
+            </div>
+        </article>
+    )
 
         
 }

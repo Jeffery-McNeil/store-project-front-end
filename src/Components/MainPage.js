@@ -24,7 +24,8 @@ function MainPage ({ setItemInfo }) {
         setFilteredProducts(itemList[category])
         }
 
-   
+    console.log(itemList)
+    console.log(filteredProducts)
        
     if(localStorage.length > 0){
         return(
