@@ -20,9 +20,10 @@
   .cartName {
     position: relative;
     font-size: 20px;
-    align-self: 50%;
+    align-self: center;
     margin-top: 0;
-    left: 8%;
+    left: 42%;
+    text-align: center;
     /* margin-bottom: 30px; */
   }
   

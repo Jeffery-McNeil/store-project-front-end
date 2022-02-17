@@ -68,8 +68,8 @@ function CartItemCard ({ item, onDelete, update, setUpdate }) {
     return (
         <article className="cartTile">                    
             <img className="cartImg" src={item.img} />
-            <div className="cartName">
-                <h2 >{item.name}</h2>
+            <div >
+                <h2 className="cartName">{item.name}</h2>
             </div>
             <div className="cartCardDetails">
                 {/* <p>Artist: {item.brand}</p> */}
