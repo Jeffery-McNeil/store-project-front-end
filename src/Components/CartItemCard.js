@@ -22,11 +22,10 @@ function CartItemCard ({ item, onDelete, update, setUpdate }) {
              onDelete(data.product_id)
              setUpdate(!update)
             })}   
-    
+
     function handleClick () {
         localStorage.setItem('itemInfo', `${item.id}`)
-        window.location.href = 'ItemInfo'
-    }
+        window.location.href = 'ItemInfo' }
 
     function handleAdd () {
         fetch(`http://localhost:9292/cart_quantity_add/${item.id}`, {

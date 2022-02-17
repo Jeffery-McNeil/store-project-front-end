@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
+import Popup from 'react-popup'
 
 ReactDOM.render(
   <BrowserRouter>
@@ -11,6 +12,11 @@ ReactDOM.render(
     
   </BrowserRouter>,
   document.getElementById('root')
+);
+
+ReactDOM.render(
+  <Popup />,
+  document.getElementsByClassName('mm-popup')
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,3 +1,7 @@
+.select::-ms-expand {
+  display: none;
+}
+
 .select {
     position: relative;
     width: 10ch;
@@ -12,6 +16,10 @@
     background-color: rgb(232, 232, 236);
     background-image: linear-gradient(to top, #f9f9f9, rgb(232, 232, 236));
     left: 10%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
   }
 
 .select:hover {

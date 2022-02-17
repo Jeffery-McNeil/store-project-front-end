@@ -21,7 +21,7 @@ function ItemCard ({ item, user }) {
             .then((data) => {
              console.log(data)
             })
-        }
+    }
 
     function handleClick () {
         localStorage.setItem('itemInfo', `${item.id}`)
@@ -33,14 +33,14 @@ function ItemCard ({ item, user }) {
 
     
     return (
-        <div className="tile" onClick={handleClick}>
+        <div className="tile">
             <p className="name">{item.name}</p>
             <img className="img" src={item.img} alt={item.name} />
             <div className="cardDetails">
                 {/* <p>Brand: {item.brand}</p> */}
                 {/* <p>{item.description}</p> */}
                 <p>${itemPrice.toFixed(Math.max(2, (itemPrice.toString().split('.')[1] || []).length))}</p>
-                <button className='button' value={item.id} onClick={handleClick}>More Information</button>
+                <button className='button' onClick={handleClick}>More Information</button>
                 <button className='button' value={item.id} onClick={addToCart}>Add to Cart</button>
             </div>
         </div>

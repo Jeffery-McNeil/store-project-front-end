@@ -25,7 +25,7 @@ function Cart ({ cartItems, setCartItems, setTotalPrice, update, setUpdate, onDe
                 {cartItems.map(item =>  <CartItemCard key={item.id} item={item} onDelete={onDelete} update={update} setUpdate={setUpdate} />)}
             </div>
             <Link to="/checkout">
-                <button>
+                <button className="checkoutButton">
                     Checkout
                 </button>
             </Link>
