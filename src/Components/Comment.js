@@ -7,7 +7,7 @@ function Comment({commentInfo}){
            
        
 
-        <span> {commentInfo.comment}</span>
+        <span> "{commentInfo.comment}"</span>
         {console.log(commentInfo)}
         <span className="username"> - {commentInfo.user.username}</span>
         </p>

@@ -10,6 +10,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
   margin: 0 15% 0 15%;
+  padding-bottom: 350px;
 }
 
 .banner-container {

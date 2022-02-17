@@ -17,24 +17,27 @@ function Reviews(){
 
     function sendToCommentDB(e){
         e.preventDefault()
-        console.log(newComment)
-        fetch("http://localhost:9292/newComment", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                comment: newComment,
-                product_id: localStorage.itemInfo,
-                user_id: localStorage.user
-            }),
-            })
-            .then((r) => r.json())
-            .then((newComment) => {
-               setProductComments([...productComments, newComment])
-               setUpdate(!update)
-               setNewComment('')
-            });
+        if(newComment.length < 1){
+            return
+        }else{
+            fetch("http://localhost:9292/newComment", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    comment: newComment,
+                    product_id: localStorage.itemInfo,
+                    user_id: localStorage.user
+                }),
+                })
+                .then((r) => r.json())
+                .then((newComment) => {
+                setProductComments([...productComments, newComment])
+                setUpdate(!update)
+                setNewComment('')
+                });
+        }
     }
 
     if(productComments.length < 1){

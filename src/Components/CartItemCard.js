@@ -20,6 +20,7 @@ function CartItemCard ({ item, onDelete, update, setUpdate }) {
             .then((r) => r.json())
             .then((data) => {
              onDelete(data.product_id)
+             setUpdate(!update)
             })}   
     
     function handleClick () {

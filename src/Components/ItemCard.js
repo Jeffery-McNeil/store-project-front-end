@@ -33,7 +33,7 @@ function ItemCard ({ item, user }) {
 
     
     return (
-        <div className="tile">
+        <div className="tile" onClick={handleClick}>
             <p className="name">{item.name}</p>
             <img className="img" src={item.img} alt={item.name} />
             <div className="cardDetails">
