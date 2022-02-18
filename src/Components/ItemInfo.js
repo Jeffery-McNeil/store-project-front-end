@@ -21,6 +21,24 @@ function ItemInfo () {
         })
         })
       }, []);
+      function addToCart (e) {
+       
+        let cartItem = {
+            product_id: itemInfo.id,
+            user_id: localStorage.user
+        }
+        fetch("http://localhost:9292/add_to_cart", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(cartItem),
+            })
+            .then((r) => r.json())
+            .then((data) => {
+             console.log(data)
+            })
+    }
 
     return (
         <>
@@ -35,6 +53,7 @@ function ItemInfo () {
                         <p>Brand: {itemInfo.brand}</p>
                         <p>{itemInfo.description}</p>
                         <p>${itemInfo.price}</p>
+                        <button className='button' onClick={addToCart}>Add To Cart</button>
                     </div>
                 </div>
                 <Reviews itemID={itemInfo.id}/>
