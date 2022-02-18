@@ -7,7 +7,8 @@ import Shipping from "./Shipping"
 
 
 function Checkout ({ cartItems, update, setCartItems, setTotalPrice, setUpdate, onDelete, totalPrice}) {
-    const [shippingPrice, setShippingPrice] = useState(0)
+    const [shippingRate, setShippingRate] = useState(0)
+    const shippingPrice = (totalPrice * shippingRate)
     const sumTotal = (totalPrice + shippingPrice)
 
     useEffect(()=> {
@@ -25,12 +26,12 @@ function Checkout ({ cartItems, update, setCartItems, setTotalPrice, setUpdate, 
         <>
             <NavBar/>
             <div className="checkout-total">
-                <span className="checkout-text">Cart Total: ${totalPrice.toFixed(Math.max(2, (totalPrice.toString().split('.')[1] || []).length))}</span>
-                <span className="checkout-text">Shipping: ${shippingPrice.toFixed(Math.max(2, (shippingPrice.toString().split('.')[1] || []).length))}</span>
-                <span className="checkout-text">Sum Total: ${(sumTotal).toFixed(Math.max(2, (sumTotal.toString().split('.')[1] || []).length))}</span>
+                <span className="checkout-text">Cart Total: ${totalPrice.toFixed(2)}</span>
+                <span className="checkout-text">Shipping: ${shippingPrice.toFixed(2)}</span>
+                <span className="checkout-text">Sum Total: ${sumTotal.toFixed(2)}</span>
             </div>
             <div>
-                <Shipping totalPrice={totalPrice} setShippingPrice={setShippingPrice}/>
+                <Shipping totalPrice={totalPrice} setShippingRate={setShippingRate}/>
             </div>
             <div className="item-list">
                 {cartItems.map((item)=> <CheckoutList key={item.name} item={item} onDelete={onDelete} update={update} setUpdate={setUpdate}/>)}

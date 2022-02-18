@@ -1,20 +1,20 @@
 import react from "react";
 import '../AllCss/Shipping.css'
 
-function Shipping ({ totalPrice, setShippingPrice }) {
+function Shipping ({ setShippingRate }) {
     
     function handleClick(event) {
         switch (event.target.value) {
             case "overnight": {
-                setShippingPrice(totalPrice*.30)
+                setShippingRate(.30)
             }
             break;
             case "standard": {
-                setShippingPrice(totalPrice*.15)
+                setShippingRate(.15)
             }
             break;
             default: {
-                setShippingPrice(0)
+                setShippingRate(0)
             }
         }           
     }

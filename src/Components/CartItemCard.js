@@ -63,7 +63,7 @@ function CartItemCard ({ item, onDelete, update, setUpdate }) {
         setUpdate(!update)
     }
 
-    const itemPrice = item.price
+    const itemPrice = (item.price * quantity)
 
     return (
         <article className="cartTile">                    
@@ -82,7 +82,7 @@ function CartItemCard ({ item, onDelete, update, setUpdate }) {
                     <button id="addButton" className="quantityButton" onClick={handleAdd}>+</button>
                 </div>
                 
-                <p>${itemPrice.toFixed(Math.max(2, (itemPrice.toString().split('.')[1] || []).length))}</p>
+                <p>${itemPrice.toFixed(2)}</p>
                 <button className="button" value={item.id} onClick={handleClick}>More Information</button>
                 <button className="button" value={item.id} onClick={removeFromCart}>Remove From Cart</button>
             </div>

@@ -20,7 +20,7 @@ function Cart ({ cartItems, setCartItems, setTotalPrice, update, setUpdate, onDe
     return (
         <>
             <NavBar/>
-            <span className="cart-total">Cart Total: ${totalPrice}</span>
+            <span className="cart-total">Cart Total: ${totalPrice.toFixed(2)}</span>
             <div className="card-holder">
                 {cartItems.map(item =>  <CartItemCard key={item.id} item={item} onDelete={onDelete} update={update} setUpdate={setUpdate} />)}
             </div>

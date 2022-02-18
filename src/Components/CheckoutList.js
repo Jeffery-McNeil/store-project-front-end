@@ -58,7 +58,7 @@ function CheckoutList ({ item, update, setUpdate, onDelete}) {
         setUpdate(!update)
     }
 
-    const itemPrice = item.price
+    const itemPrice = (item.price * quantity)
 
     return (
     <article className="checkoutTile">                    
@@ -72,7 +72,7 @@ function CheckoutList ({ item, update, setUpdate, onDelete}) {
                 <button id="addButton" className="quantityButton" onClick={handleAdd}>+</button>
             </div>
             <div id="checkoutPrice">
-                <p>${itemPrice.toFixed(Math.max(2, (itemPrice.toString().split('.')[1] || []).length))}</p>
+                <p>${itemPrice.toFixed(2)}</p>
             </div>
             <div id="checkoutButton">
                 <button className="button" value={item.id} onClick={removeFromCart}>Remove From Cart</button>
