@@ -7,11 +7,21 @@ import Cart from "./Components/Cart"
 import AdminLogin from './Components/AdminLogin'
 import ItemInfo from "./Components/ItemInfo"
 import Checkout from "./Components/Checkout"
+import './AllCss/Cart.css'
 
 function App() {
   const [cartItems, setCartItems] = useState([])
   const [update, setUpdate] = useState(true)
   const [totalPrice, setTotalPrice] = useState(0)
+  const [title, setTitle] = useState("Pacific NorthWest");
+
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
+
+  const changeTitle = (event) => {
+    setTitle(event.target.value);
+  };
 
   function onDelete(id) {
     setCartItems(cartItems.filter((item)=> item.id !== id))
@@ -19,6 +29,13 @@ function App() {
 
   return (
     <>
+    <div id="title">
+      <input
+        type="text"
+        onChange={changeTitle}
+        value={title}
+      />
+    </div>
    <Routes>
      <Route exact path="/" element={<Login />}/>
      <Route exact path="/createAccount" element={<CreateAccount/>}/>
