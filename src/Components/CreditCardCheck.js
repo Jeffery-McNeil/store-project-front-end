@@ -42,7 +42,7 @@ const CreditCardCheck = () => {
 
   return (
       <div>
-        <h2>Enter Information</h2>
+        <h2>Payment Information:</h2>
         <form onSubmit={handleSubmit} action="" method="get" className="credit-card-form">
             <div className="form-example">
               <input onChange={handleChange} type="text" 

@@ -23,9 +23,13 @@ function ItemCard ({ item, user }) {
             })
     }
 
-    function handleClick () {
+    function handleClick (e) {
+        if(e.target.name === 'cart'){
+            return
+        }else{
         localStorage.setItem('itemInfo', `${item.id}`)
         window.location.href = 'ItemInfo'
+        }
     }
         
 
@@ -33,7 +37,7 @@ function ItemCard ({ item, user }) {
 
     
     return (
-        <div className="tile">
+        <div className="tile" onClick={handleClick}>
             <p className="name">{item.name}</p>
             <img className="img" src={item.img} alt={item.name} />
             <div className="cardDetails">
@@ -41,7 +45,7 @@ function ItemCard ({ item, user }) {
                 {/* <p>{item.description}</p> */}
                 <p>${itemPrice.toFixed(Math.max(2, (itemPrice.toString().split('.')[1] || []).length))}</p>
                 <button className='button' onClick={handleClick}>More Information</button>
-                <button className='button' value={item.id} onClick={addToCart}>Add to Cart</button>
+                <button className='button' value={item.id} onClick={addToCart} name={'cart'}>Add to Cart</button>
             </div>
         </div>
     )
