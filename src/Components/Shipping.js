@@ -1,26 +1,32 @@
 import react from "react";
+import '../AllCss/Shipping.css'
 
 function Shipping ({ totalPrice, setShippingPrice }) {
     
-    function handleChange(event) {
+    function handleClick(event) {
         switch (event.target.value) {
-            case "overnight": setShippingPrice(totalPrice + (totalPrice*.30))
-                break;
-            case "standard": setShippingPrice(totalPrice + (totalPrice*.15))
-                break;
-            default: setShippingPrice(totalPrice)
-        }
-            
+            case "overnight": {
+                setShippingPrice(totalPrice*.30)
+            }
+            break;
+            case "standard": {
+                setShippingPrice(totalPrice*.15)
+            }
+            break;
+            default: {
+                setShippingPrice(0)
+            }
+        }           
     }
     
     return (
         <div>
-            <select id="cart-shipping" onChange={handleChange} name="categories">
-                <option value="shipping">Choose Shipping</option>
-                <option value="overnight">Overnight</option>
-                <option value="standard">Standard (1-2 weeks)</option>
-                <option value="free">Free (3-4 weeks)</option>
-            </select>
+            <div id="cart-shipping"  name="categories">
+                <h4 className="shipping-heading">Choose Shipping</h4>
+                <button className="shipping-button" onClick={handleClick} value="overnight">Overnight</button>
+                <button className="shipping-button" onClick={handleClick} value="standard">Standard (1-2 weeks)</button>
+                <button className="shipping-button" onClick={handleClick} value="free">Free (3-4 weeks)</button>
+            </div>
         </div>
     )
 }

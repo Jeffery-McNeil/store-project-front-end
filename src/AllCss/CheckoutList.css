@@ -11,15 +11,7 @@
     margin-bottom: 10px;
     box-shadow: 0px 0px 10px 4px rgb(232, 232, 236);
     transition: 0.8s ease;
-    border-radius: 18px;
     margin-left: 10%;
-  }
-
-  .checkoutTile:hover {
-    transform: scale(1.04);
-  }
-  .checkoutTile:hover button {
-    opacity: 1;
   }
 
   .checkoutName {
@@ -45,11 +37,6 @@
   .checkoutTile button {
     display: inline-block;
     width: 150px;
-    margin: 0px;
-    padding: 0;
-    bottom: 0;
-    opacity: 0;
-    transition: 1s ease;
     /* transition: 1s ease; */
   }
   .checkoutBttn-holder {

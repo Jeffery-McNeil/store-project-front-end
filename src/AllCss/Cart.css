@@ -19,26 +19,6 @@
   margin-top: 4%;
 }
 
-#cart-shipping {
-  position: fixed;
-  width: 17ch;
-  min-width: 10ch;
-  max-width: 150ch;
-  border: 1px solid var(--select-border);
-  border-radius: 0.25em;
-  padding: 0.25em 0.5em;
-  font-size: 1.25rem;
-  cursor: pointer;
-  line-height: 1.1;
-  background-color: rgb(232, 232, 236);
-  background-image: linear-gradient(to top, #f9f9f9, rgb(232, 232, 236));
-  left: 85%;
-  top: 21%;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: '';
-}
 
 .checkoutButton {
   position: fixed;
@@ -60,3 +40,26 @@
   text-indent: 1px;
   text-overflow: '';
 }
+
+.checkout-total {
+  left: 85%;
+  bottom: 72%;
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 10px;
+  padding: 5px;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  padding-bottom: 30px;
+  box-shadow: 0px 0px 10px 4px rgb(232, 232, 236);
+  height: 70px;
+}
+
+.checkout-text {
+  margin-bottom: 5px;
+}
+
